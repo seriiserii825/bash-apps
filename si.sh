@@ -1,7 +1,7 @@
 #! /bin/bash
 cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "P10k" "zsh" )
+apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3" )
 
 
 function installAppsDialog() {
@@ -50,7 +50,7 @@ function installApps(){
   for app in "${apps[@]}"
   do
     #check if app === P10k
-    if [ $app == "P10k" ]
+    if [ $app == "p10k" ]
     then
       if [ ! -d ~/powerlevel10k ]
       then
@@ -81,8 +81,8 @@ function uninstallApps(){
 
   for app in "${apps[@]}"
   do
-    #check if app === P10k
-    if [ $app == "P10k" ]
+    #check if app === p10k
+    if [ $app == "p10k" ]
     then
       if [ -d ~/powerlevel10k ]
       then
