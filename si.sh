@@ -1,7 +1,7 @@
 #! /bin/bash
-cd ~/Documents/bash-scripts
+cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "P10k" )
+apps=( "nvim" "telegram" "phpstorm" "P10k" "zsh" )
 
 
 function installAppsDialog() {
@@ -20,6 +20,7 @@ function installAppsDialog() {
     echo "$choice"
     ./i-$choice.sh
   done
+  exit 0
 }
 
 
@@ -39,6 +40,7 @@ function uninstallAppsDialog() {
     echo "$choice"
     ./u-$choice.sh
   done
+  exit 0
 }
 
 function installApps(){
