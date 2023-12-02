@@ -1,7 +1,7 @@
 #! /bin/bash
 cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3" "yt-dlp" )
+apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3" "yt-dlp" "ssh")
 
 
 function installAppsDialog() {
@@ -56,10 +56,15 @@ function installApps(){
       then
         apps_to_install+=($app)
       fi
-    #check if app === yt-dlp
     elif [ $app == "yt-dlp" ]
     then
       if [ ! -f /usr/local/bin/yt-dlp ]
+      then
+        apps_to_install+=($app)
+      fi
+    elif [ $app == "ssh" ]
+    then
+      if [ ! -d ~/.ssh ]
       then
         apps_to_install+=($app)
       fi
@@ -99,6 +104,12 @@ function uninstallApps(){
     elif [ $app == "yt-dlp" ]
     then
       if [ -f /usr/local/bin/yt-dlp ]
+      then
+        apps_to_uninstall+=($app)
+      fi
+    elif [ $app == "ssh" ]
+    then
+      if [ -d ~/.ssh ]
       then
         apps_to_uninstall+=($app)
       fi
