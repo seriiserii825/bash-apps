@@ -1,7 +1,7 @@
 #! /bin/bash
 cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3" )
+apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3" "yt-dlp" )
 
 
 function installAppsDialog() {
@@ -37,7 +37,7 @@ function uninstallAppsDialog() {
 
   for choice in $choices
   do
-    echo "$choice"
+    echo "choice: $choice"
     ./u-$choice.sh
   done
   exit 0
@@ -53,6 +53,13 @@ function installApps(){
     if [ $app == "p10k" ]
     then
       if [ ! -d ~/powerlevel10k ]
+      then
+        apps_to_install+=($app)
+      fi
+    #check if app === yt-dlp
+    elif [ $app == "yt-dlp" ]
+    then
+      if [ ! -f /usr/local/bin/yt-dlp ]
       then
         apps_to_install+=($app)
       fi
@@ -88,6 +95,13 @@ function uninstallApps(){
       then
         apps_to_uninstall+=($app)
       fi
+      #check if app === yt-dlp
+    elif [ $app == "yt-dlp" ]
+    then
+      if [ -f /usr/local/bin/yt-dlp ]
+      then
+        apps_to_uninstall+=($app)
+      fi
     else
       # check if app is uninstalled
       if [ -x "$(command -v $app)" ]
@@ -106,28 +120,26 @@ function uninstallApps(){
   fi
 }
 
+if [ ! -x "$(command -v dialog)" ]
+then
+  sudo apt install dialog -y
+fi
+
 select opt in Install Uninstall 
 do
   case $opt in
     Install)
       installApps "${apps[@]}"
       ;;
-    Uninstall)
+  Uninstall)
       uninstallApps "${apps[@]}"
       ;;
-    do)
+  do)
       break
       ;;
-    *)
+  *)
       echo "Invalid option $REPLY"
       ;;
   esac
 done
 
-
-# ./i-telegram.sh
-
-
-# ./i-phpstorm.sh
-# ./i-nvim.sh
-# ./i-p10k.sh
