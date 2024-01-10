@@ -13,5 +13,7 @@ installApp() {
     wget -O bat.deb  https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb
     sudo dpkg -i bat.deb
   fi
+	sudo apt install ack-grep -y
+	sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 }
 installApp
