@@ -1,5 +1,4 @@
 #! /bin/bash
-
 installApp() {
   file_name="nvim-linux64.tar.gz"
   cd ~/Downloads
@@ -12,5 +11,6 @@ installApp() {
   sudo tar -xvzf $file_name -C /opt/
   sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin
   nvim -v
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 installApp
