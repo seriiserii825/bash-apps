@@ -12,5 +12,7 @@ installApp() {
   sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin
   nvim -v
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  sudo apt install -y fzf ripgrep universal-ctags silversearcher-ag fd-find
+  sudo apt -y install python3-pynvim
 }
 installApp

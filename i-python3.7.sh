@@ -1,20 +1,20 @@
 #! /bin/bash -x
 installApp() {
-  has_python=$(which python)
-  if [ -z "$has_python" ]; then
-    sudo apt install -y wget build-essential checkinstall
-    sudo apt install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev \
-    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-    cd /usr/src
-    sudo wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
-    sudo tar xzf Python-3.7.9.tgz
-    cd Python-3.7.9
-    sudo ./configure --enable-optimizations
-    sudo make altinstall
-    
-    
-    python3.7 --version
-    # sudo apt install -y python3-pip
-  fi
+  cd ~/Downloads
+  wget https://www.python.org/ftp/python/3.7.16/Python-3.7.16.tar.xzi
+  tar -xf Python-3.7.16
+  sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev pkg-config make -y
+  cd Python3.7.16
+  ./configure --enable-optimizations --enable-shared
+  make -j 6
+  sudo make altinstall
+  sudo ldconfig
+  sudo python3.7 --version
+  sudo apt install python3-pip
+  wget https://bootstrap.pypa.io/get-pip.py
+  python3.7 get-pip.py
+  python3.7 -m pip install --upgrade pip
+  pip3.7 --version
+  sudo update-alternatives --config python
 }
 installApp
