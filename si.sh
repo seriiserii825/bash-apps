@@ -1,7 +1,7 @@
 #! /bin/bash
 cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3wm" "yt-dlp" "ssh" "python3.7")
+apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3wm" "yt-dlp" "ssh" "python3.7" "nvm")
 
 
 function installAppsDialog() {
@@ -74,6 +74,12 @@ function installApps(){
       then
         apps_to_install+=($app)
       fi
+    elif [ $app == "nvm" ]
+    then
+      if [ command -v nvm >/dev/null 2>&1 ]
+      then
+        apps_to_install+=($app)
+      fi
     else
       # check if app is installed
       if ! [ -x "$(command -v $app)" ]
@@ -122,6 +128,12 @@ function uninstallApps(){
     elif [ $app == "i3wm" ]
     then
       if [ -x "$(command -v i3)" ]
+      then
+        apps_to_install+=($app)
+      fi
+    elif [ $app == "nvm" ]
+    then
+      if [ ! command -v nvm >/dev/null 2>&1 ]
       then
         apps_to_install+=($app)
       fi
