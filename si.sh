@@ -68,6 +68,12 @@ function installApps(){
       then
         apps_to_install+=($app)
       fi
+    elif [ $app == "i3wm" ]
+    then
+      if ! [ -x "$(command -v i3)" ]
+      then
+        apps_to_install+=($app)
+      fi
     else
       # check if app is installed
       if ! [ -x "$(command -v $app)" ]
@@ -112,6 +118,12 @@ function uninstallApps(){
       if [ -d ~/.ssh ]
       then
         apps_to_uninstall+=($app)
+      fi
+    elif [ $app == "i3wm" ]
+    then
+      if [ -x "$(command -v i3)" ]
+      then
+        apps_to_install+=($app)
       fi
     else
       # check if app is uninstalled
