@@ -17,5 +17,6 @@ installApp() {
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   fi
+  wget "https://raw.githubusercontent.com/rupa/z/master/z.sh" -O "~/z.sh"
 }
 installApp
