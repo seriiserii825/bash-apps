@@ -7,6 +7,7 @@ installApp() {
     sudo apt update
     sudo apt install python3.10
     sudo apt install python3-pip
+    sudo apt install python3-pyperclip python3-colored
   fi
 }
 installApp
