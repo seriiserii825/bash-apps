@@ -1,7 +1,7 @@
 #! /bin/bash
 cd ~/Documents/bash-apps
 
-apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3wm" "yt-dlp" "ssh" "python3.7" "nvm" "python3.10" "skypeforlinux")
+apps=( "nvim" "telegram" "phpstorm" "p10k" "zsh" "fzf" "i3wm" "yt-dlp" "ssh" "python3.7" "nvm" "python3.10" "skypeforlinux" "lazygit")
 
 
 function installAppsDialog() {
