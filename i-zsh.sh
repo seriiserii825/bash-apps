@@ -18,5 +18,6 @@ installApp() {
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   fi
   wget "https://raw.githubusercontent.com/rupa/z/master/z.sh" -O "~/z.sh"
+  sudo apt install sxiv vifm
 }
 installApp
